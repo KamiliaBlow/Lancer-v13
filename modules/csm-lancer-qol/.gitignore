@@ -1,0 +1,9 @@
+# Ignore Foundry module lock files
+csm-lancer-qol.lock
+# Ignore compendium pack files, these are dynamically created with pack.sh
+packs/**
+# Node/npm stuff?
+node_modules
+package-lock.json
+package.json
+eslint.config.mjs

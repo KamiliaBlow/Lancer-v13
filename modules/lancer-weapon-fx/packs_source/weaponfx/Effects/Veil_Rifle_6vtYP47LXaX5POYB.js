@@ -1,0 +1,45 @@
+const { targetsMissed, targetTokens, sourceToken } = game.modules
+    .get("lancer-weapon-fx")
+    .api.getMacroVariables(this, typeof token !== "undefined" ? token : null);
+
+const findFarthestTargetOfGroup = function (targetTokens) {
+    let farthestToken = null;
+    let farthestTokenDistance = 0;
+    targetTokens.forEach(t => {
+        let distance = canvas.grid.measurePath([sourceToken, t]).distance;
+        if (distance > farthestTokenDistance) {
+            farthestToken = t;
+            farthestTokenDistance = distance;
+        }
+    });
+
+    return farthestToken;
+};
+
+const farthest = findFarthestTargetOfGroup(targetTokens);
+
+await Sequencer.Preloader.preloadForClients([
+    "jb2a.bullet.Snipe.blue",
+    "modules/lancer-weapon-fx/soundfx/veil_rifle.ogg",
+]);
+
+let sequence = new Sequence();
+
+for (const target of targetTokens) {
+    sequence
+        .effect()
+            .xray(game.modules.get("lancer-weapon-fx").api.isEffectIgnoreFogOfWar())
+            .aboveInterface(game.modules.get("lancer-weapon-fx").api.isEffectIgnoreLightingColoration())
+            .file("jb2a.bullet.Snipe.blue")
+            .filter("ColorMatrix", { hue: 60 })
+            .filter("Glow", { distance: 3 })
+            .atLocation(sourceToken)
+            .scale(0.8)
+            .stretchTo(farthest)
+            .missed(targetsMissed.has(target.id));
+    sequence
+        .sound()
+            .file("modules/lancer-weapon-fx/soundfx/veil_rifle.ogg")
+            .volume(game.modules.get("lancer-weapon-fx").api.getEffectVolume(0.5));
+}
+sequence.play();

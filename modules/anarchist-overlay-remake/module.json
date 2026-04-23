@@ -1,0 +1,41 @@
+{
+    "id": "anarchist-overlay-remake",
+    "title": "Anarchist Overlay Remake",
+    "description": "Fancy overlay stuff - V12 Remake",
+    "version": "0.3.0",
+    "compatibility": {
+        "minimum": "13",
+        "verified": "13.348"
+    },
+    "authors": [
+        {
+            "name": "szymon-baranczyk",
+            "url": "https://github.com/szymon-baranczyk/anarchist-overlay",
+            "flags": {}
+        },
+        {
+            "name": "Dante3147",
+            "discord": "stalker8231",
+            "flags": {}
+        }
+    ],
+    "relationships": {
+        "requires": [
+            {
+                "id": "socketlib",
+                "type": "module",
+                "compatibility": {}
+            }
+        ]
+    },
+    "socket": true,
+    "styles": [
+        "style.css"
+    ],
+    "esmodules": [
+        "scripts/module.js"
+    ],
+    "url": "https://github.com/Dante3147/anarchist-overlay-remake",
+    "manifest": "https://github.com/Dante3147/anarchist-overlay-remake/releases/latest/download/module.json",
+    "download": "https://github.com/Dante3147/anarchist-overlay-remake/releases/latest/download/module.zip"
+}

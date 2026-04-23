@@ -1,0 +1,98 @@
+image: node:22-alpine
+
+stages:
+  - dryrun
+  - package
+  - release
+  - foundry
+
+variables:
+  MANIFEST: "module.json"
+  ZIPFILE: "${CI_PROJECT_NAME}.zip"
+  PACKAGE_REGISTRY_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${CI_PROJECT_NAME}/${CI_COMMIT_TAG}"
+  MANIFEST_RELEASE_URL: "${PACKAGE_REGISTRY_URL}/${MANIFEST}"
+  ZIPFILE_RELEASE_URL: "${PACKAGE_REGISTRY_URL}/${ZIPFILE}"
+  MANIFEST_PERMALINK_URL: "https://gitlab.com/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}/-/releases/permalink/latest/downloads/module.json"
+  ZIPFILE_PERMALINK_URL: "https://gitlab.com/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}/-/releases/${CI_COMMIT_TAG}/downloads/csm-lancer-qol.zip"
+  dry_run: true
+
+foundry-check:
+  stage: dryrun
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+  before_script:
+    - apk update
+    - apk add jq curl
+  script:
+    - sh update.sh
+
+foundry-update:
+  stage: foundry
+  variables:
+    dry_run: false
+  rules:
+    - if: $CI_COMMIT_TAG
+  before_script:
+    - apk update
+    - apk add jq curl
+  script:
+    - sh update.sh
+
+create-packages-check:
+  stage: dryrun
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+  before_script:
+    - apk update
+    - apk add jq curl zip
+    - npm install -g @foundryvtt/foundryvtt-cli
+    - fvtt --version
+  script:
+    - 'if [ $(jq -r ''.version'' module.json) != "$CI_COMMIT_TAG" ]; then echo "Version mismatch between tag and manifest!"; fi'
+    - 'fvtt configure set dataPath /tmp'
+    - 'fvtt package pack --type Module --id csm-lancer-qol -n macro --in ./src/packs/macro --out ./packs --yaml'
+    - 'jq --arg zipurl "$ZIPFILE_PERMALINK_URL" ''.download=$zipurl'' module.json > output.json'
+    - 'mv output.json module.json'
+    - 'zip -r9 "/tmp/${ZIPFILE}" . -x ./.git/\* -x .gitlab-ci.yml -x .gitignore'
+    - 'cat module.json'
+
+create-packages:
+  stage: package
+  rules:
+    - if: $CI_COMMIT_TAG
+  before_script:
+    - apk update
+    - apk add jq curl zip
+    - npm install -g @foundryvtt/foundryvtt-cli
+    - fvtt --version
+  script:
+    - 'if [ $(jq -r ''.version'' module.json) != "$CI_COMMIT_TAG" ]; then echo "Version mismatch between tag and manifest!" && exit 1; fi'
+    - 'fvtt configure set dataPath /tmp'
+    - 'fvtt package pack --type Module --id csm-lancer-qol -n macro --in ./src/packs/macro --out ./packs --yaml'
+    - 'jq --arg zipurl "$ZIPFILE_PERMALINK_URL" ''.download=$zipurl'' module.json > output.json'
+    - 'mv output.json module.json'
+    - 'zip -r9 "/tmp/${ZIPFILE}" . -x ./.git/\* -x .gitlab-ci.yml -x .gitignore'
+    - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file "${MANIFEST}" "${PACKAGE_REGISTRY_URL}/${MANIFEST}"'
+    - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file "/tmp/${ZIPFILE}" "${PACKAGE_REGISTRY_URL}/${ZIPFILE}"'
+
+create-release:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - echo "Release $CI_COMMIT_TAG"
+  release:
+    name: ${CI_COMMIT_TAG}
+    tag_name: ${CI_COMMIT_TAG}
+    description: "Release ${CI_COMMIT_TAG} of ${CI_PROJECT_NAME}."
+    assets:
+      links:
+        - name: ${MANIFEST}
+          url: "$PACKAGE_REGISTRY_URL/$MANIFEST"
+          link_type: other
+          filepath: "/$MANIFEST"
+        - name: ${ZIPFILE}
+          url: "$PACKAGE_REGISTRY_URL/$ZIPFILE"
+          link_type: package
+          filepath: "/$ZIPFILE"

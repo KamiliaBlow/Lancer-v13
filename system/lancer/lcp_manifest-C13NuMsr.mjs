@@ -1,0 +1,20 @@
+const name = "Shadow of the Wolf", author = "Katherine Stark", description = "<p>Shadow of the Wolf is a mission series for Lancer written by Katherine Stark, designed for groups who enjoy roleplay and politics alongside challenging mech combat.</p><p>This LCP includes three new mechs: the RKF Taraxacum, the HORUS Hecatoncheires, and the RKF Tagetes. Additionally it contains new pilot gear and exotic systems, backgrounds for Karrakin characters, and four new bonds: the Firebrand, the Celebrant, the Knave, and the Seneschal.</p>", item_prefix = "sotw", version = "1.0.2", image_url = "https://img.itch.zone/aW1hZ2UvMzI0MjcwMC8xOTM2NTE1Mi5qcGc=/347x500/yHrfOJ.jpg", website = "https://massif-press.itch.io/shadow-of-the-wolf", require$$0 = {
+  name,
+  author,
+  description,
+  item_prefix,
+  version,
+  image_url,
+  website
+};
+export {
+  author,
+  require$$0 as default,
+  description,
+  image_url,
+  item_prefix,
+  name,
+  version,
+  website
+};
+//# sourceMappingURL=lcp_manifest-C13NuMsr.mjs.map
