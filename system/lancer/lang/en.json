@@ -1,30 +1,30 @@
 {
   "TYPES": {
     "Actor": {
-      "deployable": "Размещаемый",
-      "mech": "Меха",
-      "npc": "ПВ",
-      "pilot": "Пилот"
+      "deployable": "Deployable",
+      "mech": "Mech",
+      "npc": "NPC",
+      "pilot": "Pilot"
     },
     "Item": {
-      "bond": "Узы",
-      "core_bonus": "Бонус ядра",
-      "frame": "Рамы",
-      "license": "Лицензия",
-      "mech_system": "Система меха",
-      "mech_weapon": "Оружие меха",
-      "npc_class": "Класс ПВ",
-      "npc_feature": "Особенность ПВ",
-      "npc_template": "Шаблон ПВ",
-      "organization": "Организация",
-      "pilot_armor": "Броня пилота",
-      "pilot_gear": "Снаряжение пилота",
-      "pilot_weapon": "Оружие пилоты",
-      "reserve": "Резерв",
-      "skill": "Навык",
-      "status": "Статус/Состояние",
-      "talent": "Талант",
-      "weapon_mod": "Моды оружия"
+      "bond": "Bond",
+      "core_bonus": "Core Bonus",
+      "frame": "Frame",
+      "license": "License",
+      "mech_system": "Mech System",
+      "mech_weapon": "Mech Weapon",
+      "npc_class": "NPC Class",
+      "npc_feature": "NPC Feature",
+      "npc_template": "NPC Template",
+      "organization": "Organization",
+      "pilot_armor": "Pilot Armor",
+      "pilot_gear": "Pilot Gear",
+      "pilot_weapon": "Pilot Weapon",
+      "reserve": "Reserve",
+      "skill": "Skill",
+      "status": "Status/Condition",
+      "talent": "Talent",
+      "weapon_mod": "Weapon Mod"
     }
   },
   "lancer": {
@@ -39,7 +39,7 @@
     "LancerNPCFeatureSheet": "Lancer System NPC Feature Sheet",
     "Actor": {
       "FIELDS": {
-        "activations": { "label": "Активации" }
+        "activations": { "label": "Activations" }
       }
     },
     "placeholder": {
@@ -47,19 +47,19 @@
     },
     "common-sheet": {
       "tabs": {
-        "effects": "<ЭФФЕКТЫ//АКТИВНЫЕ>"
+        "effects": "<EFFECTS//ACTIVE>"
       }
     },
     "deployable-sheet": {
       "header": {
-        "owner": "Владел."
+        "owner": "Owner"
       },
       "tabs": {
-        "status": "<СТАТУС>",
-        "config": "<КОНФИГ>"
+        "status": "<STATUS>",
+        "config": "<CONFIG>"
       },
       "deployer": {
-        "label": "РАЗМЕЩАЕТ"
+        "label": "DEPLOYER"
       },
       "stats": {
         "label": "BASE STATS"
@@ -70,146 +70,146 @@
         "inactive-warning": "Warning: Inactive Mech - Pilot bonuses not tracked"
       },
       "tabs": {
-        "stats": "<МЕХА//СТАТЫ>",
-        "loadout": "<МЕХА//СНАРЯЖЕНИЕ>",
-        "talents": "<ПИЛОТ//ТАЛАНТЫ>"
+        "stats": "<MECH//STATS>",
+        "loadout": "<MECH//LOADOUT>",
+        "talents": "<PILOT//TALENTS>"
       },
       "core": {
-        "label": "ЯДРО"
+        "label": "CORE"
       },
       "actions": {
-        "label": "ДЕЙСТВИЯ"
+        "label": "ACTIONS"
       },
       "macros": {
-        "label": "МАКРОС"
+        "label": "MACROS"
       },
       "system": {
-        "label": "СНАРЯЖЕНИЕ",
-        "sp-used": "SP ИСП"
+        "label": "LOADOUT",
+        "sp-used": "SP USED"
       }
     },
     "npc-sheet": {
       "header": {
-        "class": "КЛАСС",
-        "templates": "ШАБЛОНЫ"
+        "class": "CLASS",
+        "templates": "TEMPLATES"
       },
       "class": {
-        "label": "КЛАСС",
-        "none": "НЕТ КЛАССА"
+        "label": "CLASS",
+        "none": "NO CLASS FOUND"
       },
       "templates": {
-        "label": "ШАБЛОНЫ"
+        "label": "TEMPLATES"
       },
       "features": {
-        "label": "ОСОБЕННОСТИ"
+        "label": "FEATURES"
       },
       "effects": {
-        "label": "АКТИВ. ЭФФЕКТЫ"
+        "label": "ACTIVE EFFECTS"
       }
     },
     "pilot-sheet": {
       "header": {
-        "ll": "У.Л:",
-        "cs": "ПОЗЫВНОЙ:",
-        "name": "ИМЯ:",
-        "bg": "ПРЕДЫСТОРИЯ:"
+        "ll": "LL",
+        "cs": "CALLSIGN",
+        "name": "NAME",
+        "bg": "BACKGROUND"
       },
       "tabs": {
-        "cloud": "<RM-4://СИНХ>",
-        "dossier": "<ПИЛОТ//ДОСЬЕ>",
-        "narrative": "<ПИЛОТ//НАРРАТИВ>",
-        "tactical": "<ПИЛОТ//ТАКТИКА>",
+        "cloud": "<RM-4://SYNC>",
+        "dossier": "<PILOT//DOSSIER>",
+        "narrative": "<PILOT//NARRATIVE>",
+        "tactical": "<PILOT//TACTICAL>",
         "loadout": "<EQUIP//LOADOUT>",
-        "mech": "<МЕХА//АКТИВНЫЕ>"
+        "mech": "<MECH//ACTIVE>"
       },
       "cloud-header": {
         "label": "RM-4://(OMNINET UPLINK ID)",
-        "vaultID": "Загрузить из Comp/Con аккаунта (если залогинились)",
-        "raw-placeholder": "или введите код вручную"
+        "vaultID": "Load from your Comp/Con account (if logged in)",
+        "raw-placeholder": "or enter a code manually"
       },
       "cloud-download": {
-        "label": "СКАЧАТЬ",
-        "lastSync": "Последняя синхронизация: {timestamp}"
+        "label": "DOWNLOAD",
+        "lastSync": "Last synced: {timestamp}"
       },
       "cloud-upload": {
-        "label": "ЗАГРУЗИТЬ",
-        "wip": "В РАЗРАБОТКЕ"
+        "label": "UPLOAD",
+        "wip": "FEATURE IN PROGRESS"
       },
       "json-import": {
-        "label": "ИМПОРТ"
+        "label": "IMPORT"
       },
       "dossier": {
-        "cs": "ПОЗЫВНОЙ",
-        "name": "ИМЯ",
-        "background": "ПРЕДЫСТОРИЯ"
+        "cs": "CALLSIGN",
+        "name": "NAME",
+        "background": "BACKGROUND"
       },
       "narrative": {
-        "bond": "УЗЫ: {bondName}",
-        "burdens": "БРЕМЯ",
-        "clocks": "ЧАСЫ"
+        "bond": "BOND OF {bondName}",
+        "burdens": "BURDENS",
+        "clocks": "CLOCKS"
       },
       "tactical": {
-        "armor": "БРОНЯ",
-        "weapons": "ОРУЖИЕ",
-        "gear": "СНАРЯЖЕНИЕ",
-        "reserves": "РЕЗЕРВЫ",
-        "licenses": "ЛИЦЕНЗИИ",
-        "cores": "БОНУСЫ ЯДРА"
+        "armor": "ARMOR",
+        "weapons": "WEAPONS",
+        "gear": "GEAR",
+        "reserves": "RESERVES",
+        "licenses": "LICENSES",
+        "cores": "CORE BONUSES"
       },
       "abilities": {
-        "skills": "ТРИГГЕРЫ НАВЫКОВ",
-        "talents": "ТАЛАНТЫ"
+        "skills": "SKILL TRIGGERS",
+        "talents": "TALENTS"
       }
     },
     "chat-card": {
       "title": {
-        "attack": "// АТАКА //",
-        "damage": "// УРОН //",
-        "reliable": "// НАДЕЖНОСТЬ //",
-        "crit-damage": "// КРИТ. УРОН //",
+        "attack": "// ATTACK //",
+        "damage": "// DAMAGE //",
+        "reliable": "// RELIABLE //",
+        "crit-damage": "// CRIT DAMAGE //",
         "self-heat": "// SELF HEAT //",
-        "defense-hit": "// АТАКА VS {defense} //",
-        "effect": "// ЭФФЕКТ //",
+        "defense-hit": "// ATTACK VS {defense} //",
+        "effect": "// EFFECT //",
         "on-attack": "// ON ATTACK //",
         "on-hit": "// ON HIT //",
         "on-crit": "// ON CRIT //",
         "charge-roll": "// CHARGE ROLL //",
         "recharged": "// RECHARGED //",
-        "structure": "// СТРУКТУРНЫЙ УРОН //",
-        "overheating": "// ПЕРЕГРЕВ //",
-        "cascade": "// КАСКАД //",
-        "check": "// ПРОВЕРКА :: {check} //",
-        "system": "// СИСТЕМА :: {title} //",
+        "structure": "// STRUCTURE DAMAGE //",
+        "overheating": "// OVERHEATING //",
+        "cascade": "// CASCADE //",
+        "check": "// CHECK :: {check} //",
+        "system": "// SYSTEM :: {title} //",
         "mod": "// MOD :: {title} //",
-        "trait": "// ЧЕРТА :: {title} //",
-        "tech": "// ТЕХНОЛОГИЯ :: {title} //",
-        "reaction": "// РЕАКЦИЯ :: {title} //"
+        "trait": "// TRAIT :: {title} //",
+        "tech": "// TECH :: {title} //",
+        "reaction": "// REACTION :: {title} //"
       },
       "label": {
-        "trigger": "ТРИГГЕР",
-        "effect": "ЭФФЕКТ"
+        "trigger": "TRIGGER",
+        "effect": "EFFECT"
       },
       "attack": {
-        "crit": "КРИТ",
-        "hit": "ПОПАД.",
-        "miss": "ПРОМАХ",
-        "roll-all-damage": "БРОСОК УРОНА"
+        "crit": "CRIT",
+        "hit": "HIT",
+        "miss": "MISS",
+        "roll-all-damage": "ROLL DAMAGE"
       },
       "exclamation": {
-        "overkill": "ОВЕРКИЛЛ!"
+        "overkill": "OVERKILL!"
       },
       "overcharge": {
         "charged": "{target} + :: CHARGED",
         "uncharged": "{target} + :: UNCHARGED"
       },
-      "remaining": "{total} / {max} ОСТАЛОСЬ"
+      "remaining": "{total} / {max} REMAINING"
     },
     "floatingDamageNumbers": {
-      "name": "Плавающие цифры урона",
-      "hint": "Включите плавающие числа урона при изменении статов, включая применение бросков урона. Эта настройка является отдельной для каждого клиента."
+      "name": "Floating Damage Numbers",
+      "hint": "Enable floating damage numbers for changes to stats, including applying damage rolls. This setting is separate for each client."
     },
     "uiTheme": {
-      "name": "Тема UI",
+      "name": "UI Theme",
       "hint": "Colour scheme for the UI, echoing Comp/Con's themes.",
       "gms": "GMS Red (default)",
       "gmsDark": "GMS Dark",
@@ -243,36 +243,36 @@
     },
     "statusIconsNames": {
       "abjure": "Abjure",
-      "aceso": "Акесо",
-      "blind": "Слепота",
-      "bolster": "Поддержка",
-      "burn": "Горение",
+      "aceso": "Aceso",
+      "blind": "Blind",
+      "bolster": "Bolster",
+      "burn": "Burn",
       "camus_razor": "Camus' Razor",
       "chain": "Chain",
       "chains_of_prometheus": "Chains of Prometheus",
       "clamp_bomb": "Clamp Bomb",
       "commander": "Commander",
-      "cover_hard": "Укрытие - Жесткое",
-      "cover_soft": "Укрытие - Мягкое",
-      "dangerzone": "Опасная зона",
-      "destroyed": "Уничтожен",
+      "cover_hard": "Cover - Hard",
+      "cover_soft": "Cover - Soft",
+      "dangerzone": "Danger Zone",
+      "destroyed": "Destroyed",
       "dimensional_shackles": "Dimensional Shackles",
       "dispersal_shield_1": "Dispersal Shield 1",
       "dispersal_shield_2": "Dispersal Shield 2",
       "dispersal_shield_3": "Dispersal Shield 3",
       "dominions_breadth": "Dominion's Breadth",
-      "downandout": "Нокаут",
+      "downandout": "Down and Out",
       "duat_gate": "Duat Gate",
       "echo_edge": "Echo Edge",
-      "elite": "Элита",
-      "engaged": "Вовлечение",
+      "elite": "Elite",
+      "engaged": "Engaged",
       "excommunicate": "Excommunicate",
       "exotic": "Exotic",
-      "exposed": "Уязвимость",
+      "exposed": "Exposed",
       "fade_cloak": "Fade Cloak",
       "flaw_minus": "FLAW_minus",
       "flaw_plus": "FLAW_plus",
-      "flying": "Полет",
+      "flying": "Flying",
       "focus_down": "Focus Down",
       "follower_count": "Follower Count",
       "grappled": "Grappled",
@@ -280,51 +280,51 @@
       "grind_maniple": "Grind Maniple",
       "grunt": "Grunt",
       "haste": "Haste",
-      "hidden": "Скрытность",
+      "hidden": "Hidden",
       "hiddeninvis": "Hidden and Invisible",
       "hunter_lock": "Hunter Lock",
       "hyperdense_armor": "Hyperdense Armor",
       "illusionary_subroutines": "Illusionary Subroutines",
-      "immobilized": "Обездвиженность",
-      "impaired": "Ослабление",
+      "immobilized": "Immobilized",
+      "impaired": "Impaired",
       "imperial_eye": "Imperial Eye",
-      "intangible": "Нематериал.",
+      "intangible": "Intangible",
       "investiture": "Investiture",
-      "invisible": "Невидимость",
-      "jammed": "Заклинивание",
+      "invisible": "Invisible",
+      "jammed": "Jammed",
       "kraul_grapple": "Kraul Grapple",
       "latch_drone": "Latch Drone",
-      "lockon": "Захват",
+      "lockon": "Lock On",
       "marked": "Marked",
       "mercenary": "Mercenary",
       "metahook": "Metahook",
       "molten_puncture": "Molten Puncture",
-      "npc_tier_1": "Тир 1",
-      "npc_tier_2": "Тир 2",
-      "npc_tier_3": "Тир 3",
+      "npc_tier_1": "Tier 1",
+      "npc_tier_2": "Tier 2",
+      "npc_tier_3": "Tier 3",
       "overshield": "Overshield",
       "pain_transference": "Pain Transference",
       "petrify": "Petrify",
-      "pirate": "Пират",
-      "prone": "Сбивание",
+      "pirate": "Pirate",
+      "prone": "Prone",
       "reactor_meltdown": "Reactor Meltdown",
-      "resistance_burn": "Сопр. Горение",
-      "resistance_energy": "Сопр. Энергия",
-      "resistance_explosive": "Сопр. Взрыв",
-      "resistance_heat": "Сопр. Нагрев",
-      "resistance_kinetic": "Сопр. Кинетик",
+      "resistance_burn": "Resist Burn",
+      "resistance_energy": "Resist Energy",
+      "resistance_explosive": "Resist Explosive",
+      "resistance_heat": "Resist Heat",
+      "resistance_kinetic": "Resist Kinetic",
       "retort_loop": "Retort Loop",
       "rpv": "RPV",
       "sanctuary": "Sanctuary",
       "shahnameh": "Shahnameh",
       "ship": "Ship",
-      "shredded": "Расщепление",
-      "shutdown": "Выключение",
-      "slow": "Замедление",
+      "shredded": "Shredded",
+      "shutdown": "Shut Down",
+      "slow": "Slowed",
       "spacer": "Spacer",
       "spike": "Spike",
       "stasis": "Stasis",
-      "stunned": "Ошеломление",
+      "stunned": "Stunned",
       "supercharger": "Supercharger",
       "sympathetic_shield": "Sympathetic_shield",
       "tachyon_shield": "Tachyon Shield",
@@ -367,22 +367,22 @@
       "token_size-desc": "Automatically force tokens sizes to match the associated actor's size stat."
     },
     "actionTracker": {
-      "menu-name": "Трекер действий",
-      "menu-label": "Настройки трекера действий",
-      "menu-hint": "Настройте параметры, связанные с трекером действий HUD и автоматизацией.",
-      "showHotbar": "Показать Хотбар",
-      "showHotbar-desc": "Переключает отображение плавающего хотбара во время боя.",
-      "allowPlayers": "Разрешить игрокам",
-      "allowPlayers-desc": "Позволяет игрокам изменять свои действия.",
-      "printMessages": "Печатать сообщения",
-      "printMessages-desc": "Печатает сообщения в чате в начале и конце хода жетона."
+      "menu-name": "Action Tracker",
+      "menu-label": "Action Tracker Settings",
+      "menu-hint": "Configure options related to action tracker HUD and automations.",
+      "showHotbar": "Show Hotbar",
+      "showHotbar-desc": "Toggles the display of the floating hotbar during combat.",
+      "allowPlayers": "Allow Players",
+      "allowPlayers-desc": "Allows players to modify their own actions.",
+      "printMessages": "Print Messages",
+      "printMessages-desc": "Prints chat messages for start and end of a token's turn."
     },
     "initiative": {
       "sorttracker": "Sort the tracker",
-      "sorttracker-desc": "Перемещает юнита, который в данный момент делает свой ход, в верхнюю часть трекера и перемещает юнитов, которые сделали свой ход, в конец трекера.",
-      "appearancesettingslabel": "Настройки внешнего вида",
-      "appearancesettingsbutton": "Внешний вид",
-      "appearancesettings-desc": "Настройте цвета и иконки, используемые в трекере"
+      "sorttracker-desc": "Moves the unit currently taking their turn to the top of the tracker and moves units that have taken their turn to the end of the tracker.",
+      "appearancesettingslabel": "Appearance Settings",
+      "appearancesettingsbutton": "Appearance",
+      "appearancesettings-desc": "Configure the colors and icon used in the tracker"
     },
     "squaregriddiagonals": {
       "name": "Square Grid Diagonal Movement",
@@ -394,10 +394,10 @@
     },
     "effect": {
       "categories": {
-        "passive": "Пассивные",
-        "passthrough": "Проходные",
-        "disabled": "Отключенные",
-        "inherited": "Наследуемые"
+        "passive": "Passive",
+        "passthrough": "Passthrough",
+        "disabled": "Disabled",
+        "inherited": "Inherited"
       }
     },
     "tables": {
@@ -510,6 +510,16 @@
     "EnableInitiativeDesc": "Adds a button to owned combatants for rolling initiative",
     "AddActivation": "Add Activation",
     "RemoveActivation": "Remove Activation",
-    "UndoActivation": "Undo Activation"
+    "UndoActivation": "Undo Activation",
+    "Combat": {
+      "activateCombatantTurn": "Activate Turn",
+      "deactivateCombatantTurn": "End Turn",
+      "activationInProgress": "Finish the current activation before activating another combatant."
+    },
+    "Movement": {
+      "activateTurn": "Activate your turn before moving.",
+      "redZone": "Cannot move beyond maximum distance (red zone).",
+      "noBoost": "No quick action available for Boost movement."
+    }
   }
 }
