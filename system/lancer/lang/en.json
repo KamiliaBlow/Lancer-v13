@@ -45,6 +45,54 @@
     "placeholder": {
       "name": "Name"
     },
+    "stat-names": {
+      "hp": "HP",
+      "heat": "HEAT",
+      "evasion": "EVASION",
+      "armor": "ARMOR",
+      "structure": "STRUCTURE",
+      "struct": "STRUCT",
+      "stress": "STRESS",
+      "e-def": "E-DEF",
+      "e-defense": "E-DEFENSE",
+      "speed": "SPEED",
+      "save": "SAVE",
+      "sensors": "SENSORS",
+      "tech-atk": "TECH ATK",
+      "burn": "BURN",
+      "o-shield": "O.SHIELD",
+      "overshield": "OVERSHIELD",
+      "repairs": "REPAIRS",
+      "grit": "GRIT",
+      "hul": "HUL",
+      "hull": "HULL",
+      "agi": "AGI",
+      "sys": "SYS",
+      "eng": "ENG",
+      "size": "SIZE",
+      "activ": "ACTIV.",
+      "activations": "ACTIVATIONS",
+      "heat-cap": "HEAT CAP",
+      "sys-points": "SYS POINTS",
+      "description": "DESCRIPTION",
+      "details": "DETAILS",
+      "history": "HISTORY",
+      "notes": "NOTES",
+      "tactics": "TACTICS",
+      "effect": "EFFECT",
+      "overcharge": "OVERCHARGE",
+      "rank": "RANK",
+      "traits": "TRAITS",
+      "base-features": "BASE FEATURES",
+      "optional-features": "OPTIONAL FEATURES",
+      "available-weapon-mounts": "AVAILABLE WEAPON MOUNTS",
+      "core-system": "CORE SYSTEM",
+      "integrated-gear": "INTEGRATED GEAR",
+      "deployables": "DEPLOYABLES",
+      "passive": "PASSIVE",
+      "active": "ACTIVE",
+      "tags": "TAGS"
+    },
     "common-sheet": {
       "tabs": {
         "effects": "<EFFECTS//ACTIVE>"
@@ -62,8 +110,12 @@
         "label": "DEPLOYER"
       },
       "stats": {
-        "label": "BASE STATS"
-      }
+        "label": "BASE STATS",
+        "max-hp": "MAX HP",
+        "heat-cap": "HEAT CAP",
+        "cost": "COST"
+      },
+      "attack-utilities": "ATTACK UTILITIES"
     },
     "mech-sheet": {
       "header": {
@@ -78,7 +130,12 @@
         "label": "CORE"
       },
       "actions": {
-        "label": "ACTIONS"
+        "label": "ACTIONS",
+        "protocol": "Protocol",
+        "movement": "Movement",
+        "full-action": "Full Action",
+        "quick-action": "Quick Action",
+        "reaction": "Reaction"
       },
       "macros": {
         "label": "MACROS"
@@ -86,7 +143,17 @@
       "system": {
         "label": "LOADOUT",
         "sp-used": "SP USED"
-      }
+      },
+      "attack-utilities": "ATTACK UTILITIES",
+      "view-inventory": "View Inventory",
+      "stabilize": "STABILIZE",
+      "full-repair": "FULL REPAIR",
+      "structure": "STRUCTURE",
+      "overheat": "OVERHEAT",
+      "melee-ranged": "MELEE/RANGED",
+      "damage": "DAMAGE",
+      "tech": "TECH",
+      "basic-attack": "BASIC ATTACK"
     },
     "npc-sheet": {
       "header": {
@@ -101,11 +168,14 @@
         "label": "TEMPLATES"
       },
       "features": {
-        "label": "FEATURES"
+        "label": "FEATURES",
+        "recharge": "Recharge"
       },
       "effects": {
         "label": "ACTIVE EFFECTS"
-      }
+      },
+      "attack-utilities": "ATTACK UTILITIES",
+      "tier": "TIER"
     },
     "pilot-sheet": {
       "header": {
@@ -146,7 +216,12 @@
       "narrative": {
         "bond": "BOND OF {bondName}",
         "burdens": "BURDENS",
-        "clocks": "CLOCKS"
+        "clocks": "CLOCKS",
+        "boon-xp": "Boon XP from another PC.",
+        "tally-xp": "Tally XP",
+        "stress": "Stress",
+        "xp": "XP",
+        "refresh-powers": "Refresh Powers"
       },
       "tactical": {
         "armor": "ARMOR",
@@ -154,12 +229,14 @@
         "gear": "GEAR",
         "reserves": "RESERVES",
         "licenses": "LICENSES",
-        "cores": "CORE BONUSES"
+        "cores": "CORE BONUSES",
+        "license-level": "LICENSE LEVEL"
       },
       "abilities": {
         "skills": "SKILL TRIGGERS",
         "talents": "TALENTS"
-      }
+      },
+      "attack-utilities": "ATTACK UTILITIES"
     },
     "chat-card": {
       "title": {
@@ -308,6 +385,7 @@
       "pirate": "Pirate",
       "prone": "Prone",
       "reactor_meltdown": "Reactor Meltdown",
+      "reaction": "Reaction Used",
       "resistance_burn": "Resist Burn",
       "resistance_energy": "Resist Energy",
       "resistance_explosive": "Resist Explosive",
@@ -517,9 +595,7 @@
       "activationInProgress": "Finish the current activation before activating another combatant."
     },
     "Movement": {
-      "activateTurn": "Activate your turn before moving.",
-      "redZone": "Cannot move beyond maximum distance (red zone).",
-      "noBoost": "No quick action available for Boost movement."
+      "activateTurn": "Activate your turn before moving."
     }
   }
 }

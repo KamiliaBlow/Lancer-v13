@@ -12,13 +12,13 @@
     </h1>
     {{{ref-portrait-img item.img "img" item}}}
     <div class="header-details">
-      <span>RANK:</span>
+      <span>{{localize "lancer.stat-names.rank"}}:</span>
       {{{l-num-input "system.curr_rank"}}}
     </div>
   </header>
 
   {{! Sheet Body }}
-  {{{textarea-card "DESCRIPTION" "system.description"}}}
+  {{{textarea-card (localize "lancer.stat-names.description") "system.description"}}}
 
-  {{{textarea-card "DETAILS" "system.detail"}}}
+  {{{textarea-card (localize "lancer.stat-names.details") "system.detail"}}}
 </form>

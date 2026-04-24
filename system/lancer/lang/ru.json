@@ -44,6 +44,54 @@
     },
     "placeholder": {
       "name": "Имя"
+	  },
+    "stat-names": {
+      "hp": "ПЗ",
+      "heat": "НАГРЕВ",
+      "evasion": "УКЛОНЕНИЕ",
+      "armor": "БРОНЯ",
+      "structure": "СТРУКТУРА",
+      "struct": "СТРУКТ",
+      "stress": "СТРЕСС",
+      "e-def": "Э-ЗАЩ",
+	  "e-defense": "Э-ЗАЩИТА",
+      "speed": "СКОРОСТЬ",
+      "save": "СПАС",
+      "sensors": "СЕНСОРЫ",
+      "tech-atk": "TECH ATK",
+      "burn": "ГОРЕНИЕ",
+      "o-shield": "СВЕРХЩИТ",
+      "overshield": "СВЕРХЩИТ",
+      "repairs": "РЕМКОМП.",
+      "grit": "СТОЙК",
+      "hul": "КОР",
+      "hull": "КОРП",
+      "agi": "УКЛ",
+      "sys": "СИС",
+      "eng": "ИНЖ",
+      "size": "РАЗМЕР",
+      "activ": "АКТИВ.",
+	  "activations": "АКТИВАЦИИ",
+      "heat-cap": "HEAT CAP",
+      "sys-points": "SYS POINTS",
+      "description": "DESCRIPTION",
+      "details": "ДЕТАЛИ",
+      "history": "ИСТОРИЯ",
+      "notes": "ЗАМЕТКИ",
+      "tactics": "ТАКТИКИ",
+      "effect": "ЭФФЕКТ",
+      "overcharge": "ПЕРЕГРУЗКА",
+      "rank": "РАНГ",
+      "traits": "TRAITS",
+      "base-features": "BASE FEATURES",
+      "optional-features": "OPTIONAL FEATURES",
+      "available-weapon-mounts": "AVAILABLE WEAPON MOUNTS",
+      "core-system": "CORE SYSTEM",
+      "integrated-gear": "INTEGRATED GEAR",
+      "deployables": "РАЗМЕЩАЕМОЕ",
+      "passive": "ПАССИВНОЕ",
+      "active": "АКТИВНОЕ",
+      "tags": "ТЭГИ"
     },
     "common-sheet": {
       "tabs": {
@@ -62,8 +110,12 @@
         "label": "РАЗМЕЩАЕТ"
       },
       "stats": {
-        "label": "BASE STATS"
-      }
+        "label": "BASE STATS",
+        "max-hp": "MAX HP",
+        "heat-cap": "HEAT CAP",
+        "cost": "COST"
+      },
+      "attack-utilities": "АТАКУЮЩИЕ УТИЛИТЫ"
     },
     "mech-sheet": {
       "header": {
@@ -78,7 +130,12 @@
         "label": "ЯДРО"
       },
       "actions": {
-        "label": "ДЕЙСТВИЯ"
+        "label": "ДЕЙСТВИЯ",
+		"protocol": "Протоколо",
+        "movement": "Движение",
+        "full-action": "Полн. Действие",
+        "quick-action": "Быстр. Действие",
+        "reaction": "Реакция"
       },
       "macros": {
         "label": "МАКРОС"
@@ -86,7 +143,17 @@
       "system": {
         "label": "СНАРЯЖЕНИЕ",
         "sp-used": "SP ИСП"
-      }
+      },
+      "attack-utilities": "АТАКУЮЩИЕ УТИЛИТЫ",
+      "view-inventory": "Инвентарь",
+      "stabilize": "СТАБИЛИЗАЦИЯ",
+      "full-repair": "ПОЛН. РЕМОНТ",
+      "structure": "СТРУКТУРА",
+      "overheat": "ПЕРЕГРЕВ",
+      "melee-ranged": "БЛИЖ./ДАЛЬН.",
+      "damage": "УРОН",
+      "tech": "ТЕХ.",
+      "basic-attack": "БАЗОВАЯ АТАКА"
     },
     "npc-sheet": {
       "header": {
@@ -101,11 +168,14 @@
         "label": "ШАБЛОНЫ"
       },
       "features": {
-        "label": "ОСОБЕННОСТИ"
+        "label": "ОСОБЕННОСТИ",
+        "recharge": "Recharge"
       },
       "effects": {
         "label": "АКТИВ. ЭФФЕКТЫ"
-      }
+      },
+      "attack-utilities": "АТАКУЮЩИЕ УТИЛИТЫ",
+      "tier": "ТИП"
     },
     "pilot-sheet": {
       "header": {
@@ -146,7 +216,12 @@
       "narrative": {
         "bond": "УЗЫ: {bondName}",
         "burdens": "БРЕМЯ",
-        "clocks": "ЧАСЫ"
+        "clocks": "ЧАСЫ",
+        "boon-xp": "Boon XP from another PC.",
+        "tally-xp": "Tally XP",
+        "stress": "Стресс",
+        "xp": "XP",
+        "refresh-powers": "Обновить силы"
       },
       "tactical": {
         "armor": "БРОНЯ",
@@ -154,12 +229,14 @@
         "gear": "СНАРЯЖЕНИЕ",
         "reserves": "РЕЗЕРВЫ",
         "licenses": "ЛИЦЕНЗИИ",
-        "cores": "БОНУСЫ ЯДРА"
+        "cores": "БОНУСЫ ЯДРА",
+        "license-level": "Уровень Лицензии"
       },
       "abilities": {
         "skills": "ТРИГГЕРЫ НАВЫКОВ",
         "talents": "ТАЛАНТЫ"
-      }
+      },
+      "attack-utilities": "АТАКУЮЩИЕ УТИЛИТЫ"
     },
     "chat-card": {
       "title": {
@@ -170,11 +247,11 @@
         "self-heat": "// SELF HEAT //",
         "defense-hit": "// АТАКА VS {defense} //",
         "effect": "// ЭФФЕКТ //",
-        "on-attack": "// ON ATTACK //",
-        "on-hit": "// ON HIT //",
-        "on-crit": "// ON CRIT //",
+        "on-attack": "// ПРИ АТАКЕ //",
+        "on-hit": "// ПРИ ПОПАД. //",
+        "on-crit": "// ПРИ КРИТ. //",
         "charge-roll": "// CHARGE ROLL //",
-        "recharged": "// RECHARGED //",
+        "recharged": "// ПЕРЕЗАРЯЖЕНО //",
         "structure": "// СТРУКТУРНЫЙ УРОН //",
         "overheating": "// ПЕРЕГРЕВ //",
         "cascade": "// КАСКАД //",
@@ -308,6 +385,7 @@
       "pirate": "Пират",
       "prone": "Сбивание",
       "reactor_meltdown": "Reactor Meltdown",
+	  "reaction": "Реакция",
       "resistance_burn": "Сопр. Горение",
       "resistance_energy": "Сопр. Энергия",
       "resistance_explosive": "Сопр. Взрыв",
@@ -508,18 +586,16 @@
     "SortTrackerDesc": "Moves the unit currently taking their turn to the top of the tracker and moves units that have taken their turn to the end of the tracker.",
     "EnableInitiative": "Enable Initiative Rolling",
     "EnableInitiativeDesc": "Adds a button to owned combatants for rolling initiative",
-    "AddActivation": "Add Activation",
-    "RemoveActivation": "Remove Activation",
-    "UndoActivation": "Undo Activation",
+    "AddActivation": "Добавить Активацию",
+    "RemoveActivation": "Удалить Активацию",
+    "UndoActivation": "Отменить Активацию",
     "COMBAT": {
       "activateCombatantTurn": "Активация",
       "deactivateCombatantTurn": "Конец",
       "activationInProgress": "Завершите текущую активацию, прежде чем переходить к новой."
     },
     "Movement": {
-      "activateTurn": "Сначала заявите активацию, прежде чем двигаться.",
-      "redZone": "Невозможно совершить движения сверх максимума (красная зона).",
-      "noBoost": "Нет доступных быстрых действий для Буста."
+      "activateTurn": "Сначала заявите активацию, прежде чем двигаться."
     }
   }
 }

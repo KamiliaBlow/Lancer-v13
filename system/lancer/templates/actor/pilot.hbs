@@ -98,8 +98,8 @@
           <span class="lancer-header lancer-primary">{{localize "lancer.pilot-sheet.dossier.background"}}</span>
           <input class="lancer-input major" {{{getset "system.background" }}} type="text" data-dtype="String" />
         </div>
-        {{{textarea-card "HISTORY" "system.history"}}}
-        {{{textarea-card "NOTES" "system.notes"}}}
+        {{{textarea-card (localize "lancer.stat-names.history") "system.history"}}}
+        {{{textarea-card (localize "lancer.stat-names.notes") "system.notes"}}}
       </div>
     </div>
 
@@ -107,8 +107,8 @@
     <div class="tab pilot flexcol" data-group="primary" data-tab="narrative">
       <div class="card clipped">
         <div class="flexrow">
-          {{{clicker-stat-card "LICENSE LEVEL" "mdi mdi-shield-outline" "system.level" false }}}
-          {{{stat-rollable-card "GRIT" "cci cci-armor" "system.grit" }}}
+          {{{clicker-stat-card (localize "lancer.pilot-sheet.tactical.license-level") "mdi mdi-shield-outline" "system.level" false }}}
+          {{{stat-rollable-card (localize "lancer.stat-names.grit") "cci cci-armor" "system.grit" }}}
         </div>
       </div>
 
@@ -145,12 +145,12 @@
               </div>
               <div class="flexrow flex-center bond-xp-item">
                 {{{std-checkbox "system.bond_state.xp_checklist.veteran_power"}}}
-                <span class="grow">Boon XP from another PC.</span>
+                <span class="grow">{{localize "lancer.pilot-sheet.narrative.boon-xp"}}</span>
               </div>
               <div class="flexrow flex-center">
                 <button class="bond-xp-button lancer-tech lancer-button grow">
                   <i class="mdi mdi-arrow-up-bold-hexagon-outline i--3"></i>
-                  Tally XP
+                  {{localize "lancer.pilot-sheet.narrative.tally-xp"}}
                 </button>
               </div>
             </div>
@@ -158,11 +158,11 @@
           <div class="flexrow">
             {{!-- Stress, XP, refresh powers --}}
             <div class="flexrow">
-              {{{generic-counter "Stress" system.bond_state.stress "system.bond_state.stress"}}}
-              {{{generic-counter "XP" system.bond_state.xp "system.bond_state.xp"}}}
+              {{{generic-counter (localize "lancer.pilot-sheet.narrative.stress") system.bond_state.stress "system.bond_state.stress"}}}
+              {{{generic-counter (localize "lancer.pilot-sheet.narrative.xp") system.bond_state.xp "system.bond_state.xp"}}}
               <button class="refresh-powers-button lancer-tech lancer-button flexcol flex-center">
                 <i class="mdi mdi-refresh i--3"></i>
-                Refresh Powers
+                {{localize "lancer.pilot-sheet.narrative.refresh-powers"}}
               </button>
             </div>
           </div>
@@ -213,10 +213,10 @@
       </div>
 
       <div class="card clipped">
-        <span class="lancer-header lancer-primary submajor">ATTACK UTILITIES</span>
+        <span class="lancer-header lancer-primary submajor">{{localize "lancer.pilot-sheet.attack-utilities"}}</span>
         <div class="lancer-flow-button-grid">
-          {{{flow-button "BASIC ATTACK" "BasicAttack" }}}
-          {{{flow-button "DAMAGE" "Damage" }}}
+          {{{flow-button (localize "lancer.mech-sheet.basic-attack") "BasicAttack" }}}
+          {{{flow-button (localize "lancer.mech-sheet.damage") "Damage" }}}
         </div>
       </div>
 
@@ -263,10 +263,10 @@
       </div>
 
       <div class="flexrow">
-        {{{clicker-stat-card "HUL" "" "system.hull" true }}}
-        {{{clicker-stat-card "AGI" "" "system.agi" true }}}
-        {{{clicker-stat-card "SYS" "" "system.sys" true }}}
-        {{{clicker-stat-card "ENG" "" "system.eng" true }}}
+        {{{clicker-stat-card (localize "lancer.stat-names.hul") "" "system.hull" true }}}
+        {{{clicker-stat-card (localize "lancer.stat-names.agi") "" "system.agi" true }}}
+        {{{clicker-stat-card (localize "lancer.stat-names.sys") "" "system.sys" true }}}
+        {{{clicker-stat-card (localize "lancer.stat-names.eng") "" "system.eng" true }}}
       </div>
 
       {{!-- Talents --}}

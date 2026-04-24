@@ -30,20 +30,20 @@
   <section class="sheet-body scroll-body">
     <div class="tab stats" data-group="primary" data-tab="stats">
       <div class="stat-grid">
-        {{{stat-edit-max-card "HP" "mdi mdi-heart-outline" "system.hp.value" "system.hp.max"}}}
-        {{{stat-edit-max-card "HEAT" "cci cci-heat" "system.heat.value" "system.heat.max"}}}
-        {{{stat-view-card "EVASION" "cci cci-evasion" "system.evasion"}}}
-        {{{stat-view-card "ARMOR" "mdi mdi-shield-outline" "system.armor"}}}
-        {{{stat-edit-max-card "STRUCTURE" "cci cci-structure" "system.structure.value" "system.structure.max"}}}
-        {{{stat-edit-max-card "STRESS" "cci cci-reactor" "system.stress.value" "system.stress.max"}}}
-        {{{stat-view-card "E-DEF" "cci cci-edef" "system.edef"}}}
-        {{{stat-view-card "SPEED" "mdi mdi-arrow-right-bold-hexagon-outline" "system.speed"}}}
-        {{{stat-view-card "SAVE" "cci cci-save" "system.save"}}}
-        {{{stat-view-card "SENSORS" "cci cci-sensor" "system.sensor_range"}}}
-        {{{tech-flow-card "TECH ATK" "cci cci-tech-full" "system.tech_attack"}}}
-        {{{stat-edit-rollable-card "BURN" "cci cci-burn" "system.burn"}}}
-        {{{stat-edit-card "O.SHIELD" "mdi mdi-shield-star-outline" "system.overshield.value"}}}
-        {{{stat-edit-max-card "REPAIRS" "cci cci-repair" "system.repairs.value" "system.repairs.max"}}}
+        {{{stat-edit-max-card (localize "lancer.stat-names.hp") "mdi mdi-heart-outline" "system.hp.value" "system.hp.max"}}}
+        {{{stat-edit-max-card (localize "lancer.stat-names.heat") "cci cci-heat" "system.heat.value" "system.heat.max"}}}
+        {{{stat-view-card (localize "lancer.stat-names.evasion") "cci cci-evasion" "system.evasion"}}}
+        {{{stat-view-card (localize "lancer.stat-names.armor") "mdi mdi-shield-outline" "system.armor"}}}
+        {{{stat-edit-max-card (localize "lancer.stat-names.structure") "cci cci-structure" "system.structure.value" "system.structure.max"}}}
+        {{{stat-edit-max-card (localize "lancer.stat-names.stress") "cci cci-reactor" "system.stress.value" "system.stress.max"}}}
+        {{{stat-view-card (localize "lancer.stat-names.e-def") "cci cci-edef" "system.edef"}}}
+        {{{stat-view-card (localize "lancer.stat-names.speed") "mdi mdi-arrow-right-bold-hexagon-outline" "system.speed"}}}
+        {{{stat-view-card (localize "lancer.stat-names.save") "cci cci-save" "system.save"}}}
+        {{{stat-view-card (localize "lancer.stat-names.sensors") "cci cci-sensor" "system.sensor_range"}}}
+        {{{tech-flow-card (localize "lancer.stat-names.tech-atk") "cci cci-tech-full" "system.tech_attack"}}}
+        {{{stat-edit-rollable-card (localize "lancer.stat-names.burn") "cci cci-burn" "system.burn"}}}
+        {{{stat-edit-card (localize "lancer.stat-names.o-shield") "mdi mdi-shield-star-outline" "system.overshield.value"}}}
+        {{{stat-edit-max-card (localize "lancer.stat-names.repairs") "cci cci-repair" "system.repairs.value" "system.repairs.max"}}}
         <div class="size-card">
           {{#if (eq system.size 0.5)}}
           <i class="cci cci-size-half size-icon theme--main"></i>
@@ -63,17 +63,17 @@
               type="checkbox" data-dtype="Boolean" {{checked system.core_energy}} />
           </div>
         </div>
-        {{{stat-rollable-card "GRIT" "cci cci-armor" "system.grit"}}}
+        {{{stat-rollable-card (localize "lancer.stat-names.grit") "cci cci-armor" "system.grit"}}}
         {{{pilot-slot "system.pilot" value=pilot}}}
 
         <div class="wraprow double hase">
-          {{{stat-rollable-card "HUL" "" "system.hull"}}}
-          {{{stat-rollable-card "AGI" "" "system.agi"}}}
-          {{{stat-rollable-card "SYS" "" "system.sys"}}}
-          {{{stat-rollable-card "ENG" "" "system.eng"}}}
+          {{{stat-rollable-card (localize "lancer.stat-names.hul") "" "system.hull"}}}
+          {{{stat-rollable-card (localize "lancer.stat-names.agi") "" "system.agi"}}}
+          {{{stat-rollable-card (localize "lancer.stat-names.sys") "" "system.sys"}}}
+          {{{stat-rollable-card (localize "lancer.stat-names.eng") "" "system.eng"}}}
         </div>
         <div class="inventory" style="flex: inherit;margin:3px 10px">
-          <button class="lancer-button" type="button" style="padding: 8px 16px"> View Inventory </button>
+          <button class="lancer-button" type="button" style="padding: 8px 16px"> {{localize "lancer.mech-sheet.view-inventory"}} </button>
         </div>
       </div>
       <div class="pilot-frame-wrapper flexrow">
@@ -82,11 +82,11 @@
             {{localize "lancer.mech-sheet.macros.label" }}
           </span>
           <div class="lancer-flow-button-grid">
-            {{{flow-button "STABILIZE" "Stabilize" }}}
-            {{{flow-button "FULL REPAIR" "FullRepair" }}}
+            {{{flow-button (localize "lancer.mech-sheet.stabilize") "Stabilize" }}}
+            {{{flow-button (localize "lancer.mech-sheet.full-repair") "FullRepair" }}}
             <div style="margin:0px 8px;border-left: 2px solid #a2a2a2;"></div>
-            {{{flow-button "STRUCTURE" "Structure" }}}
-            {{{flow-button "OVERHEAT" "Overheat" }}}
+            {{{flow-button (localize "lancer.mech-sheet.structure") "Structure" }}}
+            {{{flow-button (localize "lancer.mech-sheet.overheat") "Overheat" }}}
           </div>
         </div>
         {{#if (is-combatant actor)}}
@@ -95,11 +95,11 @@
             {{localize "lancer.mech-sheet.actions.label"}}
           </span>
           <div class="lancer-flow-button-grid">
-            {{{action-button "Protocol" "system.action_tracker.protocol" "protocol"}}}
-            {{{action-button "Movement" "system.action_tracker.move" "move"}}}
-            {{{action-button "Full Action" "system.action_tracker.full" "full"}}}
-            {{{action-button "Quick Action" "system.action_tracker.quick" "quick"}}}
-            {{{action-button "Reaction" "system.action_tracker.reaction" "reaction"}}}
+            {{{action-button (localize "lancer.mech-sheet.actions.protocol") "system.action_tracker.protocol" "protocol"}}}
+            {{{action-button (localize "lancer.mech-sheet.actions.movement") "system.action_tracker.move" "move"}}}
+            {{{action-button (localize "lancer.mech-sheet.actions.full-action") "system.action_tracker.full" "full"}}}
+            {{{action-button (localize "lancer.mech-sheet.actions.quick-action") "system.action_tracker.quick" "quick"}}}
+            {{{action-button (localize "lancer.mech-sheet.actions.reaction") "system.action_tracker.reaction" "reaction"}}}
           </div>
         </div>
         {{/if}}
@@ -109,11 +109,11 @@
     <div class="tab loadout" data-group="primary" data-tab="loadout">
       {{{mech-frame "system.loadout.frame.value" system.core_energy}}}
       <div class="card clipped">
-        <span class="lancer-header lancer-primary submajor">ATTACK UTILITIES</span>
+        <span class="lancer-header lancer-primary submajor">{{localize "lancer.mech-sheet.attack-utilities"}}</span>
         <div class="lancer-flow-button-grid">
-          {{{flow-button "MELEE/RANGED" "BasicAttack" }}}
-          {{{flow-button "DAMAGE" "Damage" }}}
-          {{{flow-button "TECH" "TechAttack" }}}
+          {{{flow-button (localize "lancer.mech-sheet.melee-ranged") "BasicAttack" }}}
+          {{{flow-button (localize "lancer.mech-sheet.damage") "Damage" }}}
+          {{{flow-button (localize "lancer.mech-sheet.tech") "TechAttack" }}}
         </div>
       </div>
       <div class="card">
