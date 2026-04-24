@@ -2,109 +2,69 @@
 
 import { log } from "./log.js";
 
-function tokenDistance(t1, t2) {
-    log('--tokenDistance--');
-    log(`Compare ${t1.document.name}'s distance to ${t2.document.name}.`);
-    const spaces1 = t1.getOccupiedSpaces();
-    const spaces2 = t2.getOccupiedSpaces();
-    const rays = spaces1.flatMap(s => spaces2.map(t => ({ ray: new Ray(s, t) })));
-    return (Math.min(...game.canvas.grid.measureDistances(rays, { gridSpaces: true })));
+function tokenGridDistance(t1, t2) {
+    log(`Compare ${t1.document.name} to ${t2.document.name}.`);
+    const gridSize = canvas.grid.size;
+    const t1x = t1.document.x + (t1.document.width * gridSize) / 2;
+    const t1y = t1.document.y + (t1.document.height * gridSize) / 2;
+    const t2x = t2.document.x + (t2.document.width * gridSize) / 2;
+    const t2y = t2.document.y + (t2.document.height * gridSize) / 2;
+    const dx = Math.abs(t1x - t2x);
+    const dy = Math.abs(t1y - t2y);
+    const halfW = ((t1.document.width + t2.document.width) * gridSize) / 2;
+    const halfH = ((t1.document.height + t2.document.height) * gridSize) / 2;
+    const edgeDx = Math.max(0, dx - halfW);
+    const edgeDy = Math.max(0, dy - halfH);
+    const pixelDist = Math.sqrt(edgeDx * edgeDx + edgeDy * edgeDy);
+    const gridDist = pixelDist / gridSize * canvas.grid.distance;
+    log(`Center dx=${dx} dy=${dy}, edge dx=${edgeDx} dy=${edgeDy}, gridDist=${gridDist}`);
+    return gridDist;
 }
 
-// Given a token, are there any other tokens that would cause
-// that token to be considered `engaged`? In short, we contruct
-// an array of rays between the spaces occupied by two tokens.
-// If any of them are very close (distance 1), we say they are
-// engaged. For gridless, we find the diagonal distance from
-// opposite corners, divide that in half to get a pseudo-radius
-// of occupation, then compare that plus the other token's
-// pseudo-radius of occupation, and if they overlap, they are
-// engaged.
 function isEngaged(token) {
     log('--isEngaged--');
-    let engagedList = [];
-    game.canvas.tokens.placeables.forEach((tik) => {
-        log(`Looping over token ${tik.name}`);
-        if (!tik.actor) {
-            log('Ignore actorless token.');
-            return;
+    let engaged = false;
+    const gridDistance = canvas.grid.distance;
+    for (const tik of game.canvas.tokens.placeables) {
+        if (!tik.actor) continue;
+        if (token.document.id === tik.document.id) continue;
+        if (token.document.hidden || tik.document.hidden) continue;
+        if (token.actor.type === 'deployable' || tik.actor.type === 'deployable') continue;
+        if (token.document.disposition === tik.document.disposition) continue;
+        if (token.actor.type === 'mech' && tik.actor.type === 'pilot') continue;
+        if (token.actor.type === 'npc' && tik.actor.type === 'pilot') continue;
+        if (token.actor.system.structure?.value === 0 || tik.actor.system.structure?.value === 0) continue;
+
+        let dist = tokenGridDistance(token, tik);
+        log(`${tik.name}: edgeDist=${dist}, threshold=${gridDistance * 0.5}`);
+        if (dist <= gridDistance * 0.5) {
+            log(`ENGAGED with ${tik.name}!`);
+            engaged = true;
+            break;
         }
-        if (token.document.id === tik.document.id) { // It's us
-            log('Ignore ourselves.');
-            return;
-        }
-        if (token.document.hidden || tik.document.hidden) { // Either of us is Foundry Hidden
-            log('Ignore hidden.');
-            return;
-        }
-        if (token.actor.type === 'deployable' || tik.actor.type === 'deployable') { // Deployables cannot be engaged or cause engagement
-            log('Ignore deployable.');
-            return;
-        }
-        if (token.document.disposition === tik.document.disposition) { // We're on the same team
-            log('Ignore same disposition.');
-            return;
-        }
-        if (token.actor.type === 'mech' && tik.actor.type === 'pilot') { // Pilots to not cause a mech to be engaged
-            log('Ignore pilots when I am mech.');
-            return;
-        }
-        if (token.actor.type === 'npc' && tik.actor.type === 'pilot') { // Pilots to not cause an npc to be engaged
-            log('Ignore pilots when I am mech.');
-            return;
-        }
-        if (token.actor.system.structure?.value === 0 || tik.actor.system.structure.value === 0) { // Dead/wrecked tokens cannot be engaged or cause engagement
-            log('Ignore dead mechs.');
-            return;
-        }
-        let distance = tokenDistance(token, tik);
-        log(`Distance: ${distance}`);
-        if (game.canvas.grid.type === 0) { // We're gridless
-            // Calculate a radius for each token
-            const tokenMaxRadius = Math.sqrt(Math.pow(token.document.width, 2) + Math.pow(token.document.height, 2));
-            const tikMaxRadius = Math.sqrt(Math.pow(tik.document.width, 2) + Math.pow(tik.document.height, 2));
-            const threshold = tokenMaxRadius * 0.5 + tikMaxRadius * 0.5;
-            log(`Threshold: ${threshold}`);
-            if (distance <= threshold) { // We're close and gridless
-                log('We are close!');
-                engagedList.push({ "id": tik.document.id, "distance": distance });
-            }
-        } else {
-            if (distance < 1.1) {
-                log('We are close!');
-                engagedList.push({ "id": tik.document.id, "distance": distance });
-            }
-        }
-    });
-    log(engagedList);
-    if (engagedList.length > 0) {
-        return true;
-    } else {
-        return false;
-    };
+    }
+    return engaged;
 }
 
 async function engageToken(token) {
-    log('--engageToken--');
-    if (isEngaged(token)) {
+    if (!token.actor) return;
+    const hasEffect = token.actor.effects.some(e => e.statuses.has('engaged'));
+    const shouldBeEngaged = isEngaged(token);
+    log(`${token.name}: hasEffect=${hasEffect}, shouldBe=${shouldBeEngaged}`);
+    if (shouldBeEngaged && !hasEffect) {
         await token.actor.toggleStatusEffect('engaged', { active: true });
-    } else {
+    } else if (!shouldBeEngaged && hasEffect) {
         await token.actor.toggleStatusEffect('engaged', { active: false });
     }
 }
 
 export async function engageHook(document, change, options, userId) {
-    if (game.settings.get('csm-lancer-qol', 'enableEngageAutomation') && game.users.activeGM.isSelf) {
-        log(change);
-        if (change.x || change.y) {
-            await CanvasAnimation.getAnimation(document.object.animationName)?.promise;
-            game.canvas.tokens.placeables.forEach(async (t) => {
-                if (t.actor) {
-                    await engageToken(t);
-                } else {
-                    log(`${t.name} has no attached actor!`);
-                }
-            })
-        }
+    if (!game.settings.get('csm-lancer-qol', 'enableEngageAutomation') || !game.users.activeGM?.isSelf) return;
+    if (!change.x && !change.y) return;
+
+    await new Promise(resolve => setTimeout(resolve, 300));
+
+    for (const t of game.canvas.tokens.placeables) {
+        await engageToken(t);
     }
 }
