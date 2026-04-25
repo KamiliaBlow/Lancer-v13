@@ -1,0 +1,111 @@
+  {
+    "tokenActionHud": {
+      "lancer": {
+        "activate": "Начать ход",
+        "activation": "Активация",
+        "activations": "Активации",
+        "add_combatant": "Ввести в бой",
+        "agi": "Уклонение",
+        "attacks": "Атаки",
+        "basic": "Базовое",
+        "basicAttack": "Базовая атака",
+        "basicTech": "Базовая тех.",
+        "bond": "Узы",
+        "bonds": "Узы",
+        "combat": "Бой",
+        "coreBonuses": "Бонусы ядра",
+        "corePower": "Сила ядра",
+        "deactivate": "Конец хода",
+        "deployables": "Размещаемое",
+        "eng": "Инженерия",
+        "frame": "Шасси",
+        "freeAction": "Своб. действие",
+        "freeActions": "Своб. действия",
+        "fullAction": "Полн. действие",
+        "fullActions": "Полн. действия",
+        "fullRepair": "Полн. ремонт",
+        "fullTech": "Полн. тех.",
+        "fullTechs": "Полн. тех.",
+        "gear": "Gear",
+        "grit": "Стойкость",
+        "hase": "HASE",
+        "hide_token":  "Скрыть токен",
+        "hul": "Корпус",
+        "invade": "Вторжение",
+        "invades": "Вторжения",
+        "macro": "Макрос",
+        "macros": "Макросы",
+        "mech": "Мех",
+        "mechWeapons": "Оружие Меха",
+        "other": "Другое",
+        "overcharge": "Перегрузка",
+        "overheat": "Перегрев",
+        "pilot": "Пилот",
+        "pilotGear": "Снар. пилота",
+        "pilotWeapon": "Оружие пилота",
+        "pilotWeapons": "Оружия пилота",
+        "protocol": "Протокол",
+        "protocols": "Протоколы",
+        "quickAction": "Быстр. действие",
+        "quickActions": "Быстр. действия",
+        "quickTech": "Быстр. тех.",
+        "quickTechs": "Быстр. тех.",
+        "rank": "Ранг",
+        "reaction": "Реакция",
+        "reactions": "Реакции",
+        "recharge": "Перезарядка",
+        "refresh": "Обновление",
+        "remove_combatant": "Убрать из боя",
+        "repair": "Ремонт",
+        "reveal_token": "Показать токен",
+        "skillTriggers": "Триггеры навыков",
+        "skills": "Навыки",
+        "stabilize": "Стабилизация",
+        "stat": "Стат",
+        "stats": "Статс",
+        "status": "Статус",
+        "statuses": "Статусы",
+        "structure": "Структура",
+        "sys": "Системы",
+        "system": "Система",
+        "systems": "Системы",
+        "talent": "Талант",
+        "talents": "Таланты",
+        "techAttack": "Тех. атака",
+        "tech": "Тех.",
+        "techs": "Тех.",
+        "tier": "Тип",
+        "traits": "Черты",
+        "utility": "Утилиты",
+        "weapon": "Оружие",
+        "weaponMods": "Моды Оружия",
+        "weapons": "Оружия",
+        "settings": {
+          "showDestroyedItems": {
+            "hint": "Show items that are marked as destroyed",
+            "name": "Show Destroyed Items"
+          },
+          "showItemsWithoutActivations": {
+            "hint": "Show items that have no active actions",
+            "name": "Show Items Without Activations"
+          },
+          "showItemsWithoutUses": {
+            "hint": "Show items with the 'Limited' tag with all uses expended",
+            "name": "Show Items Without Uses"
+          },
+          "showUnequippedItems": {
+            "hint": "Show items in inventory not currently equipped in loadout",
+            "name": "Show Unequipped Items"
+          },
+          "showUnchargedNpcFeatures": {
+            "hint": "Show NPC features that have not been recharged",
+            "name": "Show Uncharged NPC Features"
+          },
+          "showUnloadedWeapons": {
+            "hint": "Show weapons with the 'Loading' tag that have not been reloaded",
+            "name": "Show Unloaded Weapons"
+          }
+        }
+      }
+    }
+  }
